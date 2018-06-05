@@ -5,15 +5,15 @@ class HomeController < ApplicationController
   
   def signin
     @is_login = true
-    redirect_to action: 'top', is_login: true
+    redirect_to root_url
   end
 
   def signout
     @is_login = false
-    redirect_to action: 'top', is_login: false
+    redirect_to root_url
   end
 
   def signup
-    redirect_to controller: 'user', action: 'new'
+    redirect_to signup_url
   end
 end
