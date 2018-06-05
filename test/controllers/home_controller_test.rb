@@ -15,4 +15,9 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     get home_signout_url
     assert_response :redirect
   end
+
+  test "should sign up function works" do
+    get home_signup_url
+    assert_response :redirect
+  end
 end
