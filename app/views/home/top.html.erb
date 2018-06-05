@@ -2,7 +2,7 @@
 <%= params %><br>
 <%= @is_login %>
 <% if params[:is_login] %>
-  now log in
+  <%= link_to 'logout' , :controller => "home", :action => "signout" %>
 <% else %>
   <%= link_to 'login' , :controller => "home", :action => "signin" , :user_id => 1 %>
 <%  end %>
