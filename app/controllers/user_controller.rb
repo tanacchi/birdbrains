@@ -3,4 +3,7 @@ class UserController < ApplicationController
     # @user = User.find(params[:user_id])
     @user = User.find(1)
   end
+
+  def new
+  end
 end

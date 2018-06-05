@@ -11,5 +11,9 @@ class HomeController < ApplicationController
   def signout
     @is_login = false
     redirect_to :action => 'top', :is_login => false
-  end  
+  end
+
+  def signup
+    redirect_to :controller => 'user', :action => 'new'
+  end
 end
