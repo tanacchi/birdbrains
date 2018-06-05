@@ -2,9 +2,10 @@
 <%= params %><br>
 <%= @is_login %>
 <% if params[:is_login] %>
-  <%= link_to 'logout' , :controller => "home", :action => "signout" %>
+  <%= link_to 'signout' , :controller => "home", :action => "signout" %>
 <% else %>
-  <%= link_to 'login' , :controller => "home", :action => "signin" , :user_id => 1 %>
+  <%= link_to 'signin' , :controller => "home", :action => "signin" , :user_id => 1 %>
+  <%= link_to 'signup' , :controller => "home", :action => "signup" %>
 <%  end %>
 <p>
   This is the top page.
