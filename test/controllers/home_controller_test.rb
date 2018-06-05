@@ -8,6 +8,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
   test "should sign in page exists" do
     get home_signin_url
-    assert_response :success
+    assert_response :redirect
   end
 end
