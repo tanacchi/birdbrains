@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # resources :users
+  resources :users
   get 'home/top'
   get 'home/signin'
   get 'home/signout'
