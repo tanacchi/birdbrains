@@ -3,9 +3,17 @@ class HomeController < ApplicationController
   end
   
   def signin
-    redirect_to root_url
   end
 
+  def check_user
+    user = User.find_by(id: params[:session][:id])
+    if user.valid?
+      redirect_to controller: 'user', action: 'show', id: user.id
+    else
+      redirect_to signin_path
+    end
+  end
+  
   def signout
     redirect_to root_url
   end
