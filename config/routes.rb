@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'user/show'
   get 'user/new'
   post 'users/' => 'user#create'
+  get 'users/' => 'user#show'
   root 'home#top'
   resources :users
 end
