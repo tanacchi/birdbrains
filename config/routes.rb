@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   get 'home/top'
-  get 'home/signin'
-  get 'home/signout'
-  get 'home/signup'
+  get '/signin',  to: 'home#signin'
+  get '/signout', to: 'home#signout'
+  get '/signup',  to: 'user#new'
   get 'user/show'
   get 'user/new'
-  post 'users/' => 'user#create'
-  get 'users/' => 'user#show'
+  post 'users',   to: 'user#create'
+  get 'users',    to: 'user#show'
   root 'home#top'
   resources :users
 end
