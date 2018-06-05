@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class UserControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should users home exits" do
+    get user_show_url
+    assert_response :success
+  end
 end
