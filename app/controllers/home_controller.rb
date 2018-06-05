@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   
   def signin
     @is_login = true
-    redirect_to :action => 'top'
+    redirect_to :action => 'top', :is_login => true
   end
 end

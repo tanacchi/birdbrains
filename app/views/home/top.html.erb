@@ -1,7 +1,16 @@
 <h1>BirdBrains</h1>
+<%= params %><br>
+<%= @is_login %>
+<% if params[:is_login] %>
+  now log in
+<% else %>
+  <%= link_to 'login' , :controller => "home", :action => "signin" , :user_id => 1 %>
+<%  end %>
 <p>
   This is the top page.
 </p>
 
 <!-- For test -->
-<%= link_to 'show' , :controller => "user", :action => "show" , :user_id => 1 %>
+<% if params[:is_login] %>
+  <%= link_to 'show' , :controller => "user", :action => "show" , :user_id => 1 %>
+<% end %>
