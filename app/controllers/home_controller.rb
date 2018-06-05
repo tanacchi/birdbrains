@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
   def check_user
     user = User.find_by(id: params[:session][:id])
-    if user.valid?
+    if !!user
       redirect_to controller: 'user', action: 'show', id: user.id
     else
       redirect_to signin_path
