@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get '/signup',   to: 'user#new'
   get 'user/show'
   get 'user/new'
-  post 'users',    to: 'user#create'
-  get 'users',     to: 'user#show'
+  post 'user',    to: 'user#create'
+  get 'user',     to: 'user#show'
   root 'home#top'
-  resources :users
+  resources :user
 end
