@@ -12,8 +12,4 @@ class HomeController < ApplicationController
     @is_login = false
     redirect_to root_url
   end
-
-  def signup
-    redirect_to signup_url
-  end
 end
