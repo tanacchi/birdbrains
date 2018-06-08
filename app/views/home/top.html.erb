@@ -1,10 +1,14 @@
 <h1>BirdBrains</h1>
+<%  if logged_in? %>
+  <h3>Current user is <%= current_user.name %></h3>
+<% end %>
 <%= params %><br>
 <% if params[:is_login] %>
-  <%= link_to 'signout', signout_path %>
+  <%= link_to 'Signout', signout_path %>
 <% else %>
-  <%= link_to 'signin', signin_path, user: 1 %>
-  <%= link_to 'signup', signup_path %>
+  <%= link_to 'Signin', signin_path, user: 1 %>
+  <%= link_to 'Signup', signup_path %>
+  <%= link_to 'Signout', action: 'signout' %>  
 <%  end %>
 <p>
   This is the top page.
@@ -12,5 +16,5 @@
 
 <!-- For test -->
 <% if params[:is_login] %>
-  <%= link_to 'show' , controller: "user", action: "show" , user: 1 %>
+  <%= link_to 'show' , controller: "users", action: "show" , user: 1 %>
 <% end %>

@@ -1,7 +1,7 @@
 <h1>User#Signup</h1>
 
 <div class="row">
-  <%= form_for(@user) do |f| %>
+  <%= form_for(@user, url: users_path) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 
@@ -10,4 +10,5 @@
 
     <%= f.submit "Create my account", class: "btn btn-primary" %>
   <%  end %>
+  <%= link_to 'Top', root_path %>
 </div>

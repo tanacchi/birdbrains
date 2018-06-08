@@ -8,7 +8,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
   test "should sign in function works" do
     get signin_url
-    assert_response :redirect
+    assert_response :success
   end
 
   test "should sign out function works" do
