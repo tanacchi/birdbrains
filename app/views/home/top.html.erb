@@ -15,5 +15,6 @@
 
 <!-- For test -->
 <% if logged_in? %>
-  <%= link_to 'show', controller: 'users', action: 'show' %>
+  <%#= link_to 'show', controller: 'users', action: 'show' %>
+  <%= link_to 'show', users_path %>
 <% end %>

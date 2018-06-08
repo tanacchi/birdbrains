@@ -9,7 +9,7 @@ class HomeController < ApplicationController
     user = User.find_by_id(params[:session][:id])
     if user
       log_in user
-      redirect_to controller: 'users', action: 'show', id: user.id
+      redirect_to users_path
     else
       flash[:danger] = 'User not found.'
       redirect_to signin_path
