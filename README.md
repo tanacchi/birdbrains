@@ -1,3 +1,3 @@
 # birdbrains
-すべてのトリ頭たちのために。
+すべてのトリ頭たちのために。  
 For all birdbrains.
