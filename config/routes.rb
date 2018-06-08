@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/signin',   to: 'home#check_user'
   get  '/signout',  to: 'home#signout'
   get  'users',     to: 'users#show'
+  get  'memos',     to: 'memos#show'
   root 'home#top'
   resources :users
 end
