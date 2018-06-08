@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # get 'home/top'
   get '/signin',   to: 'home#signin'
   post '/signin',  to: 'home#check_user'
   get '/signout',  to: 'home#signout'
