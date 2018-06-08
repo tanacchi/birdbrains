@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def check_user
-    user = User.find_by(id: params[:session][:id])
+    user = User.find_by_id(id: params[:session][:id])
     if user
       log_in user
       redirect_to controller: 'users', action: 'show', id: user.id
@@ -17,6 +17,7 @@ class HomeController < ApplicationController
   end
   
   def signout
+    log_out
     redirect_to root_url
   end
 end
