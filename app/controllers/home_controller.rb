@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def top
   end
+
+  def signup
+    @user = User.new
+  end
   
   def signin
   end
