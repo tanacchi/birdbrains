@@ -3,4 +3,9 @@
 <%= "Name :\t#{@user.name}" %><br>
 <%= "Email :\t#{@user.email}" %><br>
 
+<h3>User list</h3>
+<%  @all_user.each do |user| %>
+  <%= "#{user.id}#{user.name}     #{user.email}" %><br>
+<% end %>
+
 <%= link_to 'Top', root_path, is_login: true %>
