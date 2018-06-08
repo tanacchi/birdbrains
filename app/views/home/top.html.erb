@@ -3,18 +3,17 @@
   <h3>Current user is <%= current_user.name %></h3>
 <% end %>
 <%= params %><br>
-<% if params[:is_login] %>
+<% if logged_in? %>
   <%= link_to 'Signout', signout_path %>
 <% else %>
-  <%= link_to 'Signin', signin_path, user: 1 %>
+  <%= link_to 'Signin', signin_path %>
   <%= link_to 'Signup', signup_path %>
-  <%= link_to 'Signout', action: 'signout' %>  
 <%  end %>
 <p>
   This is the top page.
 </p>
 
 <!-- For test -->
-<% if params[:is_login] %>
-  <%= link_to 'show' , controller: "users", action: "show" , user: 1 %>
+<% if logged_in? %>
+  <%= link_to 'show' ,controller: 'users', action: 'show', id: 1 %>
 <% end %>
