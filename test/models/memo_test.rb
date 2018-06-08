@@ -19,4 +19,9 @@ class MemoTest < ActiveSupport::TestCase
     @memo.user_id = 1145141919810
     assert_not @memo.valid?
   end
+
+  test "title should not too long" do
+    @memo.title = 'M'*31
+    assert_not @memo.valid?
+  end
 end
