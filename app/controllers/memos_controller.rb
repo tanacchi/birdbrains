@@ -4,9 +4,15 @@ class MemosController < ApplicationController
   end
 
   def new
-    current_user.memos.create(made_time: DateTime.now)
+    @memo = Memo.new
   end
   
   def create
+    current_user.memos.create(memo_params)
+  end
+
+  private
+  def memo_params
+    params.require(:memo).permit(:title, :body)
   end
 end
