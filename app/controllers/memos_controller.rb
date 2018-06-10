@@ -1,6 +1,7 @@
 class MemosController < ApplicationController
   def show
     @memo = Memo.new
+    @all_memos = Memo.all
   end
 
   def new
@@ -8,7 +9,11 @@ class MemosController < ApplicationController
   end
   
   def create
-    current_user.memos.create(memo_params)
+    if current_user.memos.create!(memo_params)
+      redirect_to memos_path
+    else
+      redirect_to mwmos_new_path
+    end
   end
 
   private
