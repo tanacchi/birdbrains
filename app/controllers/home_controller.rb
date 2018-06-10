@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def top
+    @all_user = User.all
   end
 
   def signup

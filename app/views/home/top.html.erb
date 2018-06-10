@@ -13,6 +13,11 @@
   This is the top page.
 </p>
 
+<h3>User list</h3>
+<% @all_user.each do |user| %>
+  <%= "#{user.id}#{user.name} #{user.email}" %><br>
+<% end %>
+
 <!-- For test -->
 <% if logged_in? %>
   <%#= link_to 'show', controller: 'users', action: 'show' %>

@@ -3,10 +3,16 @@
 <%= "Name :\t#{@user.name}" %><br>
 <%= "Email :\t#{@user.email}" %><br>
 
-<h3>User list</h3>
-<%  @all_user.each do |user| %>
-  <%= "#{user.id}#{user.name} #{user.email}" %><br>
+<h3>Memo List</h3>
+<% @user.memos.each do |memo| %>
+  =========================================<br>
+  ID:          <%= link_to "#{memo.id}" , memos_path(memo) %><br>
+  title:       <%= memo.title %><br>
+  body:        <%= memo.body %><br>
+  made_time:   <%= memo.made_time %><br>
+  update_time: <%= memo.updated_time %><br>
+  =========================================<br>
 <% end %>
 
 <%= link_to 'Top', root_path %>
-<%= link_to 'New Memo', memos_new_path %>
+<%= link_to 'New Memo', new_memo_path %>
