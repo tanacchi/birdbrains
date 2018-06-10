@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get  '/signout',  to: 'home#signout'
   get  'users',     to: 'users#show'
   get  'memos',     to: 'memos#show'
+  get  'memos/new', to: 'memos#new'
   root 'home#top'
   resources :users
 end
