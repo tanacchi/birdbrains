@@ -1,7 +1,10 @@
 class MemosController < ApplicationController
-  def show
-    @memo = Memo.new
+  def index
     @all_memos = Memo.all
+  end
+
+  def show
+    @memo = Memo.find(params[:id])
   end
 
   def new
