@@ -1,9 +1,8 @@
 <h1>BirdBrains</h1>
+<%= params %><br>
 <%  if logged_in? %>
   <h3>Current user is <%= current_user.name %></h3>
-<% end %>
-<%= params %><br>
-<% if logged_in? %>
+  <%= link_to 'Show', users_path %>
   <%= link_to 'Signout', signout_path %>
 <% else %>
   <%= link_to 'Signin', signin_path %>
@@ -16,10 +15,4 @@
 <h3>User list</h3>
 <% @all_user.each do |user| %>
   <%= "#{user.id}#{user.name} #{user.email}" %><br>
-<% end %>
-
-<!-- For test -->
-<% if logged_in? %>
-  <%#= link_to 'show', controller: 'users', action: 'show' %>
-  <%= link_to 'show', users_path %>
 <% end %>
