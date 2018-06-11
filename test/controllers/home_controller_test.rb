@@ -19,5 +19,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   test "should sign out function works" do
     get signout_url
     assert_response :redirect
+    assert_redirected_to root_url
   end
 end
