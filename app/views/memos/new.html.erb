@@ -3,10 +3,10 @@
 <div class="row">
   <%= form_for(@memo, url: memos_path) do |f| %>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title %><br>
 
     <%= f.label :body %>
-    <%= f.text_field :body %>
+    <%= f.text_area :body %>
 
     <%= f.submit "Create new memo", class: "btn btn-primary" %>
   <%  end %>
