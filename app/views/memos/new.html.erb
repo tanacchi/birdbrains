@@ -1,7 +1,7 @@
 <h1>Memo#New</h1>
 
 <div class="row">
-  <%= form_for(@memo, url: memos_path) do |f| %>
+  <%= form_for(@memo, url: users_memos_path) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %><br>
 

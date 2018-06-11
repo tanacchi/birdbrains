@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get  '/signin',   to: 'home#signin'
   post '/signin',   to: 'home#check_user'
   get  '/signout',  to: 'home#signout'
-  get  'users',     to: 'users#show'
   root 'home#top'
-  resources :users
-  resources :memos
+  resource :users do
+    resource :memos
+  end
 end

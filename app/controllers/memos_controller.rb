@@ -14,9 +14,9 @@ class MemosController < ApplicationController
   def create
     @memo = current_user.memos.create!(memo_params)
     if @memo
-      redirect_to @memo
+      redirect_to action: 'show', id: @memo.id
     else
-      redirect_to mwmos_new_path
+      redirect_to new_users_memos_path
     end
   end
 
