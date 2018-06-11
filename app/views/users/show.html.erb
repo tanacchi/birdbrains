@@ -6,7 +6,7 @@
 <h3>Memo List</h3>
 <% @user.memos.each do |memo| %>
   =========================================<br>
-  ID:          <%= link_to "#{memo.id}" , memos_path(memo) %><br>
+  ID:          <%= link_to "#{memo.id}" , controller: 'memos', action: 'show', id: memo.id %><br>
   title:       <%= memo.title %><br>
   body:        <%= memo.body %><br>
   made_time:   <%= memo.made_time %><br>
