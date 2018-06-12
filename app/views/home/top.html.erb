@@ -1,18 +1,46 @@
-<h1>BirdBrains</h1>
-<%= params %><br>
-<%  if logged_in? %>
-  <h3>Current user is <%= current_user.name %></h3>
-  <%= link_to 'Show', users_path %>
-  <%= link_to 'Signout', signout_path %>
-<% else %>
-  <%= link_to 'Signin', signin_path %>
-  <%= link_to 'Signup', signup_path %>
-<%  end %>
-<p>
-  This is the top page.
-</p>
-
-<h3>User list</h3>
-<% @all_user.each do |user| %>
-  <%= "#{user.id}#{user.name} #{user.email}" %><br>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="header">
+          <h1>BiradBrains</h1>
+        </div>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <%  if logged_in? %>
+              <li><%= link_to 'Show', users_path %></li>
+              <li><%= link_to 'Signout', signout_path %></li>
+            <% else %>
+              <li><%= link_to 'Signin', signin_path %></li>
+              <li><%= link_to 'Signup', signup_path %></li>
+            <%  end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div align="left">
+      <p>
+      <%= params %><br>
+      <%  if logged_in? %>
+        <h3>Current user is <%= current_user.name %></h3>
+      <% end %>
+      
+      This is the top page.
+    </p>
+    </div>
+    <h3>User list</h3>
+    <% @all_user.each do |user| %>
+      <%= "#{user.id}#{user.name} #{user.email}" %><br>
+    <% end %>
+  </body>
+</html>
