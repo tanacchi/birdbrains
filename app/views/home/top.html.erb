@@ -34,8 +34,10 @@
       <%  if logged_in? %>
         <h3>Current user is <%= current_user.name %></h3>
       <% end %>
-      
-      This is the top page.
+      <p>
+        This is the top page.<br>
+        <%= link_to 'github', 'https://github.com/tanacchi/birdbrains' %>
+      </p>
     </p>
     </div>
     <h3>User list</h3>
