@@ -4,3 +4,5 @@ title:       <%= @memo.title %><br>
 body:        <%= @memo.body %><br>
 made_time:   <%= @memo.made_time %><br>
 update_time: <%= @memo.updated_time %><br>
+
+<%= link_to 'Back', users_path(@memo.user) %>
