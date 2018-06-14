@@ -2,10 +2,18 @@
 
 one:
   id: 1
-  title: MyString
+  title: MyString1
   body: MyText
+  user_id: 1
 
 two:
   id: 2
-  title: MyString
+  title: MyString2
   body: MyText
+  user_id: 2
+
+two:
+  id: 3
+  title: MyString2
+  body: MyText
+  user_id: 3
