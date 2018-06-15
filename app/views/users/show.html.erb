@@ -9,8 +9,8 @@
   ID:          <%= link_to "#{memo.id}" , controller: 'memos', action: 'show', id: memo.id %><br>
   title:       <%= memo.title %><br>
   body:        <%= memo.body %><br>
-  made_time:   <%= memo.made_time %><br>
-  update_time: <%= memo.updated_time %><br>
+  made_time:   <%= format_datetime(memo.made_time) %><br>
+  update_time: <%= format_datetime(memo.updated_time) %><br>
   =========================================<br>
 <% end %>
 
