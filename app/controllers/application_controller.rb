@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     payload[:host]       = request.host
     payload[:ip]         = request.remote_ip
     payload[:login_id]   = session[:login_id]
-    payload[:username]   = current_user.try(:username)
+    payload[:username]   = current_user.try(:name)
     payload[:user_agent] = request.user_agent
     payload[:referer]    = request.referer
   end
