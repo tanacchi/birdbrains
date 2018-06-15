@@ -1,2 +1,2 @@
-<%= render 'memos/memo', memo: @memo %>
+<%= render partial: 'memos/memo', layout: 'memos/frame', locals: { memo: @memo } %>
 <%= link_to 'Back', users_path(@memo.user) %>

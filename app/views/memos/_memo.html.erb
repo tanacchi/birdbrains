@@ -1,7 +1,7 @@
 <p>
-  <%= "ID :           #{memo.id}" %><br>
-  <%= "Title :        #{memo.title}" %><br>
-  <%= "Body :         #{memo.body}" %><br>
-  <%= "Made time :    #{format_datetime(memo.made_time)}" %><br>
+  <%= "ID : #{memo.id}" %><br>
+  <%= link_to "Title : #{memo.title}", controller: 'memos', action: 'show', id: memo.id %><br>
+  <%= "Body : #{memo.body}" %><br>
+  <%= "Made time : #{format_datetime(memo.made_time)}" %><br>
   <%= "Updated time : #{format_datetime(memo.updated_time)}" %><br>
 </p>
