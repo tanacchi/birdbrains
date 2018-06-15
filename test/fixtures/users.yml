@@ -2,15 +2,15 @@
 
 one:
   id: 1
-  name: MyString1
-  email: MyString
+  name: user1
+  email: user1@mail
 
 two:
   id: 2
-  name: MyString2
-  email: MyString
+  name: user2
+  email: user2@mail
 
 three:
   id: 3
-  name: MyString3
-  email: MyString
+  name: user3
+  email: user3@mail
