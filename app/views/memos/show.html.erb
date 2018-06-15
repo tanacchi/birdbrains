@@ -1,8 +1,2 @@
-<%= @memo %><br>
-ID:          <%= @memo.id %><br>
-title:       <%= @memo.title %><br>
-body:        <%= @memo.body %><br>
-made_time:   <%= format_datetime(@memo.made_time) %><br>
-update_time: <%= format_datetime(@memo.updated_time) %><br>
-
+<%= render 'memos/memo', memo: @memo %>
 <%= link_to 'Back', users_path(@memo.user) %>
