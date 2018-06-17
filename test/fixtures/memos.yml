@@ -1,19 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  id: 1
-  title: MyString1
-  body: MyText
-  user_id: 1
-
-two:
-  id: 2
-  title: MyString2
-  body: MyText
-  user_id: 2
-
-two:
-  id: 3
-  title: MyString2
-  body: MyText
-  user_id: 3
+<% rand = Random.new %>
+<% 100.times do |n| %>
+memo<%= n %>:
+  title: memo<%= n %>
+  body: <%= (0...10).map{ ('A'..'Z').to_a[rand(26)] }.join %>
+  user_id: <%= rand(User.all.count)%>
+  made_time: <%= Time.now - 1 %>
+  updated_time: <%= Time.now %>
+<% end %>
