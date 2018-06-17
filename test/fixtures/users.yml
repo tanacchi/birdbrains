@@ -1,6 +1,6 @@
 <% 20.times do |n| %>
 user<%= n %>:
-  id: <%= n %>
-  name: user<%= n %>
+  id:    <%= n %>
+  name:  user<%= n %>
   email: user<%= n %>@mail.com
 <% end %>
