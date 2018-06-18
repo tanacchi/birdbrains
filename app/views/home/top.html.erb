@@ -22,8 +22,17 @@
     </p>
     </div>
     <h3>User list</h3>
-    <% @all_user.each do |user| %>
-      <%= "#{user.id}#{user.name} #{user.email}" %><br>
-    <% end %>
+    <table border="3" width="300">
+      <tr>
+        <th>ID</th><th>Name</th><th>e-mail</th>
+      </tr>
+      <% @all_user.each do |user| %>
+        <tr align="center">
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    </table>
   </body>
 </html>
