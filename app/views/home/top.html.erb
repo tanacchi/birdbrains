@@ -1,35 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
-  </head>
-  <body>
-    <div align="left">
-      <p>
-        <% if logged_in? %>
-          <h3>Current user is <strong><%= link_to "#{current_user.name}", users_path %></strong></h3>
-        <% end %>
-        This is the top page.<br>
-      </p>
-    </div>
-    <h3>User list</h3>
-    <table border="3" width="300">
-      <tr>
-        <th>ID</th><th>Name</th><th>e-mail</th>
+<p>
+  <% if logged_in? %>
+    <h3>Current user is <strong><%= link_to "#{current_user.name}", users_path %></strong></h3>
+  <% end %>
+</p>
+<p>
+  <h3>User list</h3>
+  <table border="3" width="300">
+    <tr>
+      <th>ID</th><th>Name</th><th>e-mail</th>
+    </tr>
+    <% @all_user.each do |user| %>
+      <tr align="center">
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
       </tr>
-      <% @all_user.each do |user| %>
-        <tr align="center">
-          <td><%= user.id %></td>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
-        </tr>
-      <% end %>
-    </table>
-  </body>
-</html>
+    <% end %>
+  </table>
+</p>
