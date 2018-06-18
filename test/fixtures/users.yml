@@ -1,11 +1,6 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  id: 1
-  name: MyString
-  email: MyString
-
-two:
-  id: 2
-  name: MyString
-  email: MyString
+<% 20.times do |n| %>
+user<%= n %>:
+  id:    <%= n %>
+  name:  user<%= n %>
+  email: user<%= n %>@mail.com
+<% end %>

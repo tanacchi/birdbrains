@@ -1,0 +1,18 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="header">
+      <font color="#77d" size="6"><%=link_to_unless_current 'BirdBrains', root_path %></font>
+      <!-- <nav> -->
+        <ul class="nav navbar-nav navbar-right">
+          <%  if logged_in? %>
+            <li><%= link_to 'Show', users_path %></li>
+            <li><%= link_to 'Signout', signout_path, data: { confirm: 'Are you sure ?' } %></li>
+          <% else %>
+            <li><%= link_to 'Signin', signin_path %></li>
+            <li><%= link_to 'Signup', signup_path %></li>
+          <%  end %>
+        </ul>
+        <!-- </nav> -->
+    </div>
+  </div>
+</header>

@@ -1,18 +1,6 @@
 <h1>User#Show</h1>
-<%= "ID :\t#{@user.id}" %><br>
-<%= "Name :\t#{@user.name}" %><br>
-<%= "Email :\t#{@user.email}" %><br>
-
+<%= render partial: 'users/user', layout: 'users/frame', locals: { user: @user }%>
 <h3>Memo List</h3>
-<% @user.memos.each do |memo| %>
-  =========================================<br>
-  ID:          <%= link_to "#{memo.id}" , controller: 'memos', action: 'show', id: memo.id %><br>
-  title:       <%= memo.title %><br>
-  body:        <%= memo.body %><br>
-  made_time:   <%= memo.made_time %><br>
-  update_time: <%= memo.updated_time %><br>
-  =========================================<br>
-<% end %>
-
+<%= render  partial: 'memos/memo', collection: @user.memos, layout: 'memos/frame' %>
 <%= link_to 'Top', root_path %>
 <%= link_to 'New Memo', new_users_memos_path %>

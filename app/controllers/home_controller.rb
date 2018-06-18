@@ -11,7 +11,7 @@ class HomeController < ApplicationController
   end
 
   def check_user
-    user = User.find_by_id(params[:session][:id])
+    user = User.find_by_name(params[:session][:name])
     if user
       log_in user
       redirect_to users_path
