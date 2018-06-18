@@ -12,14 +12,11 @@
   <body>
     <div align="left">
       <p>
-      <%= params %><br>
-      <%  if logged_in? %>
-        <h3>Current user is <%= current_user.name %></h3>
-      <% end %>
-      <p>
+        <% if logged_in? %>
+          <h3>Current user is <strong><%= link_to "#{current_user.name}", users_path %></strong></h3>
+        <% end %>
         This is the top page.<br>
       </p>
-    </p>
     </div>
     <h3>User list</h3>
     <table border="3" width="300">
