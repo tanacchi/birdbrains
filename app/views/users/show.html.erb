@@ -1,8 +1,5 @@
 <h1>User#Show</h1>
-<%= "ID :    #{@user.id}" %><br>
-<%= "Name :  #{@user.name}" %><br>
-<%= "Email : #{@user.email}" %><br>
-
+<%= render partial: 'users/user', layout: 'users/frame', locals: { user: @user }%>
 <h3>Memo List</h3>
 <%= render  partial: 'memos/memo', collection: @user.memos, layout: 'memos/frame' %>
 <%= link_to 'Top', root_path %>
