@@ -1,5 +1,5 @@
 class MemosController < ApplicationController
-  before_action :authorize
+  before_action :authorize,  only: [:show, :edit]
   
   def index
     @all_memos = Memo.all

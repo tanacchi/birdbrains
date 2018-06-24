@@ -5,6 +5,7 @@ class HomeController < ApplicationController
 
   def signup
     @user = User.new
+    render 'users/new'
   end
   
   def signin
