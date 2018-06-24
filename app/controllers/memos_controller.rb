@@ -29,7 +29,7 @@ class MemosController < ApplicationController
   def update
     @memo = Memo.find(params[:id])
     if @memo.update_attributes(memo_params)
-      redirect_to users_memos_url(@memo)
+      redirect_to action: 'show', id: @memo.id
     else
       redirect_back
     end
