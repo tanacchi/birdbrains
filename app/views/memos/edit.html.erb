@@ -1,0 +1,14 @@
+<h1>Memo#Edit</h1>
+
+<div class="row">
+  <%= form_for(@memo, url: url_for(action: 'update', id: @memo.id)) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+
+    <%= f.submit "Edit memo", class: "btn btn-primary" %>
+  <%  end %>
+  <%= link_to 'Back', action: 'show', id: @memo.id %>
+</div>
