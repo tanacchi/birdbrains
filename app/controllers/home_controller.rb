@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class HomeController < ApplicationController  
   def top
     @all_user = User.all
   end

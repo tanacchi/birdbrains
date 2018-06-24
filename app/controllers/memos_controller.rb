@@ -1,4 +1,6 @@
 class MemosController < ApplicationController
+  before_action :authorize
+  
   def index
     @all_memos = Memo.all
   end
