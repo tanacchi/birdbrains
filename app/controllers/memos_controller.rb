@@ -24,6 +24,7 @@ class MemosController < ApplicationController
 
   def edit
     @memo = Memo.find(params[:id])
+    send_file '/home/tanacchi/.ros/xray_xy_all_color.png'
   end
 
   def update
@@ -36,9 +37,9 @@ class MemosController < ApplicationController
   end
 
   def destroy
-    @memo = Memo.find(params[:id])    
+    @memo = Memo.find(params[:id])
     @memo.destroy
-    redirect_to request.referrer || root_url
+    redirect_back fallback_location: root_url
   end
   
   private

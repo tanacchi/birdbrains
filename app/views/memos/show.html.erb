@@ -1,4 +1,4 @@
 <%= render partial: 'memos/memo', layout: 'memos/frame', locals: { memo: @memo } %>
 <%= link_to 'Edit', action: 'edit', id: @memo.id %>
-<%#= link_to 'Edit', edit_users_memos_path(@memo) %>
+<%= link_to 'Delete', action: 'destroy', method: :delete, id: @memo.id %>
 <%= link_to 'Back', users_path(@memo.user) %>
