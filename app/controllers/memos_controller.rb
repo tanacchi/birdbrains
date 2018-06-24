@@ -34,6 +34,12 @@ class MemosController < ApplicationController
       redirect_back
     end
   end
+
+  def destroy
+    @memo = Memo.find(params[:id])    
+    @memo.destroy
+    redirect_to request.referrer || root_url
+  end
   
   private
   def memo_params
