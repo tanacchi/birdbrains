@@ -38,7 +38,7 @@ class MemosController < ApplicationController
   def destroy
     @memo = Memo.find(params[:id])
     @memo.destroy
-    redirect_back fallback_location: root_url
+    redirect_to users_url
   end
   
   private
