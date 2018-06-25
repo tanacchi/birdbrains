@@ -1,10 +1,11 @@
-class HomeController < ApplicationController
+class HomeController < ApplicationController  
   def top
     @all_user = User.all
   end
 
   def signup
     @user = User.new
+    render 'users/new'
   end
   
   def signin

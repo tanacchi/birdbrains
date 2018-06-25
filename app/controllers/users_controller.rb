@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize, only: [:show, :edit]
+  
   def show
     @user = current_user
     @all_user = User.all
@@ -11,6 +13,19 @@ class UsersController < ApplicationController
       redirect_to users_path
     else
       redirect_to signup_path
+    end
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(user_params)
+      redirect_to users_url
+    else
+      redirect_back
     end
   end
   

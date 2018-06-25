@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     payload[:user_agent] = request.user_agent
     payload[:referer]    = request.referer
   end
+
+  def authorize
+    redirect_to signin_path unless logged_in?
+  end
 end
