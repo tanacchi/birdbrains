@@ -1,5 +1,6 @@
 class MemosController < ApplicationController
   before_action :authorize,  only: [:show, :edit]
+  before_action :correct_user, only: [:destroy]
   
   def index
     @all_memos = Memo.all
@@ -36,7 +37,6 @@ class MemosController < ApplicationController
   end
 
   def destroy
-    @memo = Memo.find(params[:id])
     @memo.destroy
     redirect_to users_url
   end
@@ -44,5 +44,10 @@ class MemosController < ApplicationController
   private
   def memo_params
     params.require(:memo).permit(:title, :body)
+  end
+
+  def correct_user
+    @memo = current_user.memos.find_by(id: params[:id])
+    redirect_to root_url if @memo.nil?
   end
 end

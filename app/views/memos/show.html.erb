@@ -1,4 +1,4 @@
 <%= render partial: 'memos/memo', layout: 'memos/frame', locals: { memo: @memo } %>
 <%= link_to 'Edit', edit_users_memos_path(id: @memo) %>
-<%= link_to 'Delete', users_memos_path(id: @memo), method: :delete %>
+<%= link_to 'Delete', users_memos_path(id: @memo), method: :delete, data: { confirm: 'Are you sure ?'} %>
 <%= link_to 'Back', users_path %>
