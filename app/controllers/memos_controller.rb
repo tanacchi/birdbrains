@@ -16,7 +16,7 @@ class MemosController < ApplicationController
   def create
     @memo = current_user.memos.create!(memo_params)
     if @memo
-      redirect_to action: 'show', id: @memo.id
+      redirect_to users_memos_path(id: @memo)
     else
       redirect_to new_users_memos_path
     end
@@ -24,13 +24,12 @@ class MemosController < ApplicationController
 
   def edit
     @memo = Memo.find(params[:id])
-    send_file '/home/tanacchi/.ros/xray_xy_all_color.png'
   end
 
   def update
     @memo = Memo.find(params[:id])
     if @memo.update_attributes(memo_params)
-      redirect_to action: 'show', id: @memo.id
+      redirect_to users_memos_path(id: @memo)
     else
       redirect_back
     end
