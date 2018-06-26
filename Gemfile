@@ -39,6 +39,9 @@ gem 'bootstrap-sass', '>= 3.3.7'
 gem 'lograge'
 gem "logstash-event"
 
+# Simple calendar
+gem 'simple_calendar'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
