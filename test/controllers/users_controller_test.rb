@@ -38,13 +38,13 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to signup_path
   end
 
-  test "users edit page should accessible" do
+  test "users edit page should be accessible" do
     login @user
     get edit_users_path
     assert_response :success
   end
 
-  test "users edit page should not accessible without login" do
+  test "users edit page should not be accessible without login" do
     get edit_users_path
     assert_response :redirect
     assert_redirected_to signin_path
