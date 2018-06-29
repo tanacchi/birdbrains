@@ -18,4 +18,21 @@ class MemosControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to signin_path
   end
+
+  test "memos create action should create new memo" do
+    login @user
+    assert_difference('Memo.count') do
+      post users_memos_path(memo: { title: 'test_title', body: 'test_body'})
+    end
+    assert_response :redirect
+    assert_redirected_to users_memos_path(id: assigns(:memo))
+  end
+
+  test "memos create action should not create new memo without login" do
+    assert_no_difference('Memo.count') do
+      post users_memos_path(memo: { title: 'test_title', body: 'test_body'})
+    end
+    assert_response :redirect
+    assert_redirected_to signin_path
+  end
 end
