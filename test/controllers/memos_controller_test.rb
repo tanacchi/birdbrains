@@ -35,4 +35,16 @@ class MemosControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to signin_path
   end
+
+  test "memos edit page should be accessible" do
+    login @user
+    get edit_users_memos_path(id: @memo)
+    assert_response :success
+  end
+
+  test "memos edit page should not be accessible without login" do
+    get edit_users_memos_path(id: @memo)
+    assert_response :redirect
+    assert_redirected_to signin_path
+  end
 end
