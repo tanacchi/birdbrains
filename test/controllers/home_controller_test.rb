@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
+  def setup
+    @user = users(:user0)
+    @user.save!
+  end
+  
   test "top page should exist" do
     get root_url
     assert_response :success
