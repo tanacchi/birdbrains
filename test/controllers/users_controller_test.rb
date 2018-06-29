@@ -21,4 +21,20 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to signin_path
   end
+
+  test "users create action should create valid user" do
+    assert_difference('User.count') do
+      post signup_path(user: { name: 'test_name', email: 'test@email'})
+    end
+    assert_response :redirect
+    assert_redirected_to users_path
+  end
+
+  test "users create action should reject invalid user" do
+    assert_no_difference('User.count') do
+      post signup_path(user: { name: @user.name, email: @user.email})
+    end
+    assert_response :redirect
+    assert_redirected_to signup_path
+  end
 end
