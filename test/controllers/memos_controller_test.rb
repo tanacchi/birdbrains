@@ -47,4 +47,17 @@ class MemosControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to signin_path
   end
+
+  test "memos update action should modify memos attuributes" do
+    login @user
+    patch users_memos_path(id: @memo, memo: { title: @memo.title+"_updated" })
+    assert_response :redirect
+    assert_redirected_to users_memos_path(id: @memo)
+  end
+
+  test "memos update action should not modify memos attuributes without login" do
+    patch users_memos_path(id: @memo, memo: { title: @memo.title+"_updated" })
+    assert_response :redirect
+    assert_redirected_to signin_path
+  end
 end
