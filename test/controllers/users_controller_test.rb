@@ -57,7 +57,7 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to users_path
   end
 
-  test "users update action should not modify users attributes without login" do
+  test "users update action should not be accessible without login" do
     patch users_path(user: { name: @user.name+"_updated"})
     assert_response :redirect
     assert_redirected_to signin_path
