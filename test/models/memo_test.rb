@@ -2,11 +2,10 @@ require 'test_helper'
 
 class MemoTest < ActiveSupport::TestCase
   def setup
-    @memo = Memo.new(title: 'Example Memo', body: 'Example text',
-                     user_id: 1, made_time: DateTime.now, updated_time: DateTime.now)
+    @memo = memos(:memo0)
   end
 
-  test "should be valid" do
+  test "valid memo should be valid" do
     assert @memo.valid?
   end
   
