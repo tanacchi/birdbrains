@@ -16,11 +16,25 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "sign in function should exist" do
+  test "sign in page should exist" do
     get signin_url
     assert_response :success
   end
 
+  test "check_user action should assign valid user" do
+    post signin_url(session: { name: @user.name, email: @user.email })
+    assert_response :redirect
+    assert_redirected_to users_url
+  end
+
+  test "check_user action should reject invalid user" do
+    post signin_url(session:
+                      { name: (0...8).map{ ('A'..'Z').to_a[rand(26)] }.join,
+                        email: @user.email })
+    assert_response :redirect
+    assert_redirected_to signin_path
+  end
+  
   test "sign out action should work" do
     get signout_url
     assert_response :redirect
