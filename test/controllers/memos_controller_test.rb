@@ -60,4 +60,31 @@ class MemosControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to signin_path
   end
+
+  test "memos destroy action should delete a memo" do
+    login @user
+    assert_difference('Memo.count', -1) do
+      delete users_memos_path(id: @memo)
+    end
+    assert_response :redirect
+    assert_redirected_to users_path
+  end
+
+  test "memos destroy action should not delete a memo by invalid user" do
+    @user = users(:user1)
+    login @user
+    assert_no_difference('Memo.count') do
+      delete users_memos_path(id: @memo)
+    end
+    assert_response :redirect
+    assert_redirected_to root_path
+  end
+
+  test "memos destroy action should not delete a memo without login" do
+    assert_no_difference('Memo.count') do
+      delete users_memos_path(id: @memo)
+    end
+    assert_response :redirect
+    assert_redirected_to signin_path
+  end
 end
