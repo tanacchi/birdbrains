@@ -6,10 +6,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     @user.save!
   end
 
-  def teerdown
-    get signout_path
-  end
-  
   test "top page should exist" do
     get root_path
     assert_response :success
