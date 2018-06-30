@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'calendars/index'
   get  '/signup',   to: 'home#signup'
   post '/signup',   to: 'users#create'
   get  '/signin',   to: 'home#signin'
@@ -8,5 +7,6 @@ Rails.application.routes.draw do
   root 'home#top'
   resource :users, format: false, shallow: true do
     resource :memos, format: false
+    resource :calendar, format: false
   end
 end

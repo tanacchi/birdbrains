@@ -1,5 +1,5 @@
 class CalendarsController < ApplicationController
   before_action :authorize
-  def index
+  def show
   end
 end

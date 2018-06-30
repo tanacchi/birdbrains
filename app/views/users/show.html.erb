@@ -1,7 +1,7 @@
 <h1>User#Show</h1>
 <%= render partial: 'users/user', layout: 'users/frame', locals: { user: @user }%>
 <p>
-  <strong><%= link_to 'Calendar', calendars_index_path %></strong>
+  <strong><%= link_to 'Calendar', users_calendar_path %></strong>
 </p>
 <h3>Memo List</h3>
 <%= render  partial: 'memos/memo', collection: @user.memos, layout: 'memos/frame' %>
