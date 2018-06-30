@@ -15,6 +15,7 @@ class HomeController < ApplicationController
     user = User.find_by_name(params[:session][:name])
     if user
       log_in user
+      flash[:success] = "Welcome, #{user.name} !"
       redirect_to users_path
     else
       flash[:danger] = 'User not found.'
