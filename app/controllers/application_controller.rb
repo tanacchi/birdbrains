@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    redirect_to signin_path unless logged_in?
+    redirect_to signin_path, info: 'You need to select Signin or Signup.' unless logged_in?
   end
 end
