@@ -15,16 +15,14 @@ class HomeController < ApplicationController
     user = User.find_by_name(params[:session][:name])
     if user
       log_in user
-      flash[:success] = "Welcome, #{user.name} !"
-      redirect_to users_path
+      redirect_to users_path, success: "Welcome, #{user.name} !"
     else
-      flash[:danger] = 'User not found.'
-      redirect_to signin_path
+      redirect_to signin_path, danger: 'Signin was rejected.'
     end
   end
   
   def signout
     log_out
-    redirect_to root_url
+    redirect_to root_url, success: 'See ya!'
   end
 end
