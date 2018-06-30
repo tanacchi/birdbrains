@@ -48,6 +48,8 @@ class MemosController < ApplicationController
 
   def correct_user
     @memo = current_user.memos.find_by(id: params[:id])
-    redirect_to root_url, warning: 'Invalid request detected.' if @memo.nil?
+    if @memo.nil?
+      redirect_to root_url, warning: 'Invalid request detected.'
+    end
   end
 end
