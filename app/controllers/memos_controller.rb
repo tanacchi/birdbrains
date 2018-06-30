@@ -38,6 +38,7 @@ class MemosController < ApplicationController
 
   def destroy
     @memo.destroy
+    flash[:notice] = "The memo was successfully deleted."
     redirect_to users_url
   end
   
