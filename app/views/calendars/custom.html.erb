@@ -1,0 +1,8 @@
+<h1>Calendars#custom</h1>
+<p>Find me in app/views/calendars/custom.html.erb</p>
+<p>
+  <%= calendar number_of_days: 15 do |date| %>
+    <%= date %>
+  <% end %>
+</p>
+<p><%= link_to 'Back', calendars_index_path %></p>
