@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meetings
   get 'calendars/index'
   get 'calendars/week'
   get 'calendars/custom'
