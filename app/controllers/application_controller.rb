@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :success, :info, :warning, :danger
   include HomeHelper
 
   def append_info_to_payload(payload)
