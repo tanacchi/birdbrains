@@ -17,9 +17,9 @@ class MemosController < ApplicationController
   def create
     @memo = current_user.memos.create!(memo_params)
     if @memo
-      redirect_to users_memos_path(id: @memo)
+      redirect_to users_memos_path(id: @memo), success: 'New memo created successfully.'
     else
-      redirect_to new_users_memos_path
+      redirect_to new_users_memos_path, danger: 'Failed to create new memo.'
     end
   end
 
@@ -30,16 +30,15 @@ class MemosController < ApplicationController
   def update
     @memo = Memo.find(params[:id])
     if @memo.update_attributes(memo_params)
-      redirect_to users_memos_path(id: @memo)
+      redirect_to users_memos_path(id: @memo), success: 'Changes saved successfully.'
     else
-      redirect_back
+      redirect_to edit_users_memos_path(id: @memo), danger: 'Invalid changes exist.'
     end
   end
 
   def destroy
     @memo.destroy
-    flash[:notice] = "The memo was successfully deleted."
-    redirect_to users_url
+    redirect_to users_url, success: 'The memo was successfully deleted.'
   end
   
   private
@@ -49,6 +48,6 @@ class MemosController < ApplicationController
 
   def correct_user
     @memo = current_user.memos.find_by(id: params[:id])
-    redirect_to root_url if @memo.nil?
+    redirect_to root_url, warning: 'Invalid request detected.' if @memo.nil?
   end
 end
