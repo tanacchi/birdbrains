@@ -20,7 +20,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
   test "sign in page should exist" do
     get signin_path
-    assert_template 'home/signin', layout: 'application'
+    assert_template :signin, layout: 'application'
     assert_response :success
   end
 
