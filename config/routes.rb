@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'calendars/week'
   get 'calendars/custom'
   get 'calendars/param'
+  get 'calendars/meeting'
   get  '/signup',   to: 'home#signup'
   post '/signup',   to: 'users#create'
   get  '/signin',   to: 'home#signin'

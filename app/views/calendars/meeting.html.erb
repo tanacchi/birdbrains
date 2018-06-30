@@ -1,0 +1,14 @@
+<h1>Calendars#week</h1>
+<p>Find me in app/views/calendars/week.html.erb</p>
+<p>
+  <%= month_calendar events: @meetings do |date, meetings| %>
+    <%= date %>
+
+    <%  meetings.each do |meeting| %>
+      <div>
+        <%= meeting.name %>
+      </div>
+    <% end %>
+  <% end %>
+</p>
+<p><%= link_to 'Back', calendars_index_path %></p>

@@ -11,4 +11,8 @@ class CalendarsController < ApplicationController
 
   def param
   end
+
+  def meeting
+    @meetings = Meeting.all
+  end
 end
