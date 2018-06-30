@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize, only: [:show, :edit]
+  before_action :authorize, only: [:show, :edit, :update]
   
   def show
     @user = current_user
