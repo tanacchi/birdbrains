@@ -8,4 +8,7 @@ class CalendarsController < ApplicationController
 
   def custom
   end
+
+  def param
+  end
 end

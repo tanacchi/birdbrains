@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'calendars/index'
   get 'calendars/week'
   get 'calendars/custom'
+  get 'calendars/param'
   get  '/signup',   to: 'home#signup'
   post '/signup',   to: 'users#create'
   get  '/signin',   to: 'home#signin'
