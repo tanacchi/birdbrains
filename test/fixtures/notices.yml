@@ -1,13 +1,1 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  message: MyString
-  user: one
-  gaget: one
-
-two:
-  name: MyString
-  message: MyString
-  user: two
-  gaget: two
