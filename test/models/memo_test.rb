@@ -28,4 +28,9 @@ class MemoTest < ActiveSupport::TestCase
     @memo.title = '      '
     assert_not @memo.valid?
   end
+
+  test "memos body should exist" do
+    @memo.body = '    '
+    assert_not @memo.valid?
+  end
 end

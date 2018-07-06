@@ -1,7 +1,8 @@
 class Memo < ApplicationRecord
   validates :title, { length: {maximum: 30},
                       presence: true }
-
+  validates :body,  presence: true
+  
   belongs_to :user
 
   before_create :set_made_time
