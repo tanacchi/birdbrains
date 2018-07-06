@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resource :users, format: false, shallow: true do
     resource :memos, format: false
     resource :calendar, format: false
+    resources :notices, format: false, only: [:create, :destroy]
   end
 end
