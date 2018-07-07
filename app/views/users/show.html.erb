@@ -10,7 +10,8 @@
   <% if @user.notices.empty? %>
     You have no notifications.
   <% else %>
-    <%= "You have #{@user.notices.count} notification(s)." %>    
+    <% notice_num = @user.notices.count{|notice| notice[:has_read] == false} %>
+    <%= "You have #{notice_num} notification(s)." %>    
     <%= render partial: 'notices/notice', collection: @user.notices %>
   <% end %>
 </p>
