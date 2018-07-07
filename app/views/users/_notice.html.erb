@@ -2,5 +2,8 @@
   ==================================<br>
   <%= "name: #{notice.name}" %><br>
   <%= "message: #{notice.message}" %><br>
+  <% unless notice.has_read %>
+    <%= button_to 'Mark as Read', notice_mark_as_read_path(id: notice)%>
+  <% end %>
   ==================================<bra>
 </p>
