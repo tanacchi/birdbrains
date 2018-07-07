@@ -11,7 +11,7 @@
     You have no notifications.
   <% else %>
     <%= "You have #{@user.notices.count} notification(s)." %>    
-    <%= render partial: 'users/notice', collection: @user.notices %>
+    <%= render partial: 'notices/notice', collection: @user.notices %>
   <% end %>
 </p>
 <p>
