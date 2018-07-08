@@ -2,9 +2,9 @@
   ==================================<br>
   <%= "name: #{notice.name}" %><br>
   <%= "message: #{notice.message}" %><br>
-  <%= "created at: #{format_datetime(notice.created_at)}"  %>
+  <%= "created at: #{format_datetime(notice.created_at)}" %><br>
   <% unless notice.has_read %>
-    <%= button_to 'Mark as Read', notice_mark_as_read_path(id: notice)%>
+    <%= button_to 'Mark as Read', notice_mark_as_read_path(id: notice), class: 'btn btn-default' %>
   <% end %>
-  ==================================<bra>
+  ==================================
 </p>
