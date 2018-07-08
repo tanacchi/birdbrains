@@ -17,6 +17,8 @@ class MemosController < ApplicationController
   def create
     @memo = current_user.memos.create!(memo_params)
     if @memo
+      current_user.notices.create(name: 'Information about your memo',
+                                  message: "Memo \'#{@memo.title}\' was created.")
       redirect_to users_memos_path(id: @memo), success: 'New memo created successfully.'
     else
       redirect_to new_users_memos_path, danger: 'Failed to create new memo.'
@@ -29,7 +31,10 @@ class MemosController < ApplicationController
 
   def update
     @memo = Memo.find(params[:id])
+    memos_title = @memo.title
     if @memo.update_attributes(memo_params)
+      current_user.notices.create(name: 'Information about your memo',
+                                  message: "Memo \'#{memos_title}\' was edited.")      
       redirect_to users_memos_path(id: @memo), success: 'Changes saved successfully.'
     else
       redirect_to edit_users_memos_path(id: @memo), danger: 'Invalid changes exist.'
@@ -37,7 +42,10 @@ class MemosController < ApplicationController
   end
 
   def destroy
+    memos_title = @memo.title
     @memo.destroy
+    current_user.notices.create(name: 'Information about your memo',
+                                  message: "Memo \'#{memos_title}\' was edited.")
     redirect_to users_url, success: 'The memo was successfully deleted.'
   end
   
