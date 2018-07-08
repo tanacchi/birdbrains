@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
+      current_user.notices.create(name: 'Information about user',
+                                  message: "You created new account at #{format_datetime(Datetime.now)}")
       redirect_to users_path, success: "Nice to meet you, #{@user.name}!"
     else
       redirect_to signup_path, danger: 'Failed to create new account.'
@@ -23,6 +25,8 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
+      current_user.notices.create(name: 'Information about user',
+                                  message: "You edited your profile at #{format_datetime(Datetime.now)}")      
       redirect_to users_url, success: 'Changes saved successfully.'
     else
       redirect_to edit_users_path, danger: 'Invalid changes exist.'
