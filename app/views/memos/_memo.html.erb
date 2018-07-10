@@ -1,6 +1,6 @@
 <p>
   <%= "ID : #{memo.id}" %><br>
-  Title : <%= link_to_unless_current memo.title, users_memos_path(id: memo) %><br>
+  <%= link_to_unless_current "Title : #{memo.title}", users_memos_path(id: memo) %><br>
   <%= "Body : #{memo.body}" %><br>
   <%= "Made time : #{format_datetime(memo.made_time)}" %><br>
   <%= "Updated time : #{format_datetime(memo.updated_time)}" %><br>
