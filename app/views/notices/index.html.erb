@@ -1,0 +1,10 @@
+<p>
+  <h1>Notice</h1>
+  <% if @notices.empty? %>
+    You have no notifications.
+  <% else %>
+    <% notice_num = @notices.count{|notice| notice[:has_read] == false} %>
+    <%= "You have #{notice_num} notification(s)." %>    
+    <%= render partial: 'notices/notice', collection: @notices %>
+  <% end %>
+</p>
