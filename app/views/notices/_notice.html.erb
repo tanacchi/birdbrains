@@ -1,4 +1,5 @@
-<p>
+<% back_color = notice.has_read ? 'white' : 'lightskyblue' %>
+<%= content_tag(:div, style: "background-color: #{back_color};") do %>
   ==================================<br>
   <%= "name: #{notice.name}" %><br>
   <%= "message: #{notice.message}" %><br>
@@ -6,5 +7,5 @@
   <% unless notice.has_read %>
     <%= button_to 'Mark as Read', notice_mark_as_read_path(id: notice), class: 'btn btn-default' %>
   <% end %>
-  ==================================
-</p>
+  ==================================<br>
+<% end %>
