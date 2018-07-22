@@ -3,8 +3,8 @@
   <%= render partial: 'users/user', layout: 'users/frame', locals: { user: @user }%>
 </p>
 <p>
-  <strong><%= link_to 'Calendar', users_calendar_path %></strong>
-  <strong><%= link_to 'Notice', users_notices_path %></strong>
+  <strong><%= link_to 'Calendar', users_calendar_path, class: 'btn btn-warning btn-lg' %></strong>
+  <strong><%= link_to 'Notice', users_notices_path, class: 'btn btn-info btn-lg' %></strong>
 </p>
 
 <p>
