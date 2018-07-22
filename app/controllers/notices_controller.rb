@@ -1,6 +1,6 @@
 class NoticesController < ApplicationController
   def index
-    @notices = current_user.notices
+    @notices = current_user.notices.order(created_at: :asc)
   end
   
   def create
