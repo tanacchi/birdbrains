@@ -3,18 +3,10 @@
   <%= render partial: 'users/user', layout: 'users/frame', locals: { user: @user }%>
 </p>
 <p>
-  <strong><%= link_to 'Calendar', users_calendar_path %></strong>
+  <strong><%= link_to 'Calendar', users_calendar_path, class: 'btn btn-warning btn-lg' %></strong>
+  <strong><%= link_to 'Notice', users_notices_path, class: 'btn btn-info btn-lg' %></strong>
 </p>
-<p>
-  <h1>Notice</h1>
-  <% if @user.notices.empty? %>
-    You have no notifications.
-  <% else %>
-    <% notice_num = @user.notices.count{|notice| notice[:has_read] == false} %>
-    <%= "You have #{notice_num} notification(s)." %>    
-    <%= render partial: 'notices/notice', collection: @user.notices %>
-  <% end %>
-</p>
+
 <p>
   <h3>Memo List</h3>
   <%= render  partial: 'memos/memo', collection: @user.memos, layout: 'memos/frame' %>
