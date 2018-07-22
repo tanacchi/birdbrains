@@ -45,7 +45,7 @@ class MemosController < ApplicationController
     memos_title = @memo.title
     @memo.destroy
     current_user.notices.create(name: 'Information about your memo',
-                                  message: "Memo \'#{memos_title}\' was edited.")
+                                  message: "Memo \'#{memos_title}\' was deleted.")
     redirect_to users_url, success: 'The memo was successfully deleted.'
   end
   
