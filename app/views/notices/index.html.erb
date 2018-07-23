@@ -1,5 +1,5 @@
 <p>
-  <h1>Notice</h1>
+  <h1 style="border-radius: 9px; background-color: lightskyblue; padding: 5px;">Notice</h1>
   <% unread_notice_num = @notices.count{|notice| notice[:has_read] == false} %>
   <% unread_notice_rate = 100 - unread_notice_num*100 / @notices.count %>
   <div class="progress">
@@ -12,4 +12,4 @@
   <% end %>
   <%= render partial: 'notices/notice', collection: @notices %>
 </p>
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path, class: 'btn btn-primary btn-lg' %>
