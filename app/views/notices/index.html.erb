@@ -3,8 +3,12 @@
   <% if @notices.empty? %>
     You have no notifications.
   <% else %>
-    <% notice_num = @notices.count{|notice| notice[:has_read] == false} %>
-    <%= "You have #{notice_num} notification(s)." %>    
+    <% unread_notice_num = @notices.count{|notice| notice[:has_read] == false} %>
+    <% unread_notice_rate = 100 - unread_notice_num*100 / @notices.count %>
+    <div class="progress">
+      <%= content_tag :div, "#{unread_notice_rate}%", class: 'progress-bar', role: 'progressbar', style: "width: #{unread_notice_rate}%;"%>
+    </div>
+    <%= "You have #{unread_notice_num} unread notification(s)." %>    
     <%= render partial: 'notices/notice', collection: @notices %>
   <% end %>
 </p>
