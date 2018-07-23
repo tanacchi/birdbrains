@@ -12,7 +12,7 @@
 
 <p>
   <h3 style="border-radius: 9px; background-color: violet; color: white; padding: 5px;">Memo List</h3>
-  <%= render  partial: 'memos/memo', collection: @user.memos, layout: 'memos/frame' %>
+  <%= render  partial: 'memos/memo', collection: @user.memos.order(made_time: :asc), layout: 'memos/frame' %>
 
   <%= link_to 'Edit', edit_users_path %>
   <%= link_to 'New Memo', new_users_memos_path %><br>
