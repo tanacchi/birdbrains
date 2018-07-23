@@ -3,8 +3,11 @@
   <%= render partial: 'users/user', layout: 'users/frame', locals: { user: @user }%>
 </p>
 <p>
-  <strong><%= link_to 'Calendar', users_calendar_path, class: 'btn btn-warning btn-lg' %></strong>
-  <strong><%= link_to 'Notice', users_notices_path, class: 'btn btn-info btn-lg' %></strong>
+  <%= link_to 'Calendar', users_calendar_path, class: 'btn btn-warning btn-lg' %>
+  <%= link_to users_notices_path, class: 'btn btn-info btn-lg' do %>
+    <% notice_num = @user.notices.count{|notice| notice[:has_read] == false} %>
+    Notice <span class="badge badge-primary"><%= notice_num %></span>
+  <% end %>
 </p>
 
 <p>
