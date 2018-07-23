@@ -1,11 +1,20 @@
 <h1>User#Show</h1>
-<%= render partial: 'users/user', layout: 'users/frame', locals: { user: @user }%>
 <p>
-  <strong><%= link_to 'Calendar', users_calendar_path %></strong>
+  <%= render partial: 'users/user', layout: 'users/frame', locals: { user: @user }%>
 </p>
-<h3>Memo List</h3>
-<%= render  partial: 'memos/memo', collection: @user.memos, layout: 'memos/frame' %>
+<p>
+  <%= link_to 'Calendar', users_calendar_path, class: 'btn btn-warning btn-lg' %>
+  <%= link_to users_notices_path, class: 'btn btn-info btn-lg' do %>
+    <% notice_num = @user.notices.count{|notice| notice[:has_read] == false} %>
+    Notice <span class="badge badge-primary"><%= notice_num %></span>
+  <% end %>
+</p>
 
-<%= link_to 'Edit', edit_users_path %>
-<%= link_to 'New Memo', new_users_memos_path %><br>
-<%= link_to 'Top', root_path %>
+<p>
+  <h3>Memo List</h3>
+  <%= render  partial: 'memos/memo', collection: @user.memos, layout: 'memos/frame' %>
+
+  <%= link_to 'Edit', edit_users_path %>
+  <%= link_to 'New Memo', new_users_memos_path %><br>
+  <%= link_to 'Top', root_path %>
+</p>
