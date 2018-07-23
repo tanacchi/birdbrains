@@ -1,13 +1,17 @@
-<p>
+<div class="panel panel-default" style="border: solid 3px lightskyblue; ">
   <% back_color = notice.has_read ? 'white' : 'lightskyblue' %>
   <%= content_tag(:div, style: "background-color: #{back_color};") do %>
-    ==================================<br>
-    <%= "name: #{notice.name}" %><br>
-    <%= "message: #{notice.message}" %><br>
-    <%= "created at: #{format_datetime(notice.created_at)}" %><br>
-    <% unless notice.has_read %>
-      <%= button_to 'Mark as Read', notice_mark_as_read_path(id: notice), class: 'btn btn-default' %>
-    <% end %>
-    ==================================<br>
+    <div class="panel-heading">
+      <div class="panel-title"><%= notice.name %></div>
+    </div>
+    <div class="panel-body">
+      <%= notice.message %>
+      <% unless notice.has_read %>
+        <%= button_to 'Mark as Read', notice_mark_as_read_path(id: notice), class: 'btn btn-default', style: 'margin-top: 10px;'%>
+      <% end %>
+    </div>
+    <div class="panel-footer">
+      <%= "created at: #{format_datetime(notice.created_at)}" %>
+    </div>
   <% end %>
-</p>
+</div>
