@@ -4,9 +4,9 @@
 </p>
 <p>
   <%= link_to 'Calendar', users_calendar_path, class: 'btn btn-warning btn-lg' %>
-  <%= link_to users_notices_path, class: 'btn btn-info btn-lg' do %>
+  <%= link_to users_notices_path, class: 'btn btn-default btn-lg', style: 'background-color: lightskyblue;' do %>
     <% notice_num = @user.notices.count{|notice| notice[:has_read] == false} %>
-    Notice <span class="badge badge-primary"><%= notice_num %></span>
+    Notice <span class="badge badge-primary" style="background-color: white; color: black;"><%= notice_num %></span>
   <% end %>
 </p>
 
