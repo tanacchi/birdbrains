@@ -1,6 +1,6 @@
 <div class="panel panel-default" style="margin: 2vh 10vw 2vh; border: solid 3px lavender;">
   <div class="panel-heading panel-title" style="background-color: lavender;">
-    <%= link_to memo.title, users_memos_path(id: memo), class: 'btn btn-default' %>
+    <%= link_to memo.title, users_memos_path(id: memo), style: 'width: 100%; text-align: left;', class: 'btn btn-default' %>
   </div>
   <div class="panel-body">
     <div class="well"> <%= simple_format("#{memo.body}") %></div>
