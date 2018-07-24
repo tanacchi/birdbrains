@@ -1,7 +1,12 @@
-<p>
-  <%= "ID : #{memo.id}" %><br>
-  Title : <%= link_to_unless_current memo.title, users_memos_path(id: memo) %><br>
-  <%= simple_format("Body : #{memo.body}") %><br>
-  <%= "Made time : #{format_datetime(memo.made_time)}" %><br>
-  <%= "Updated time : #{format_datetime(memo.updated_time)}" %><br>
-</p>
+<div class="panel panel-default" style="margin: 2vh 10vw 2vh; border: solid 3px lavender;">
+  <div class="panel-heading panel-title" style="background-color: lavender;">
+    <%= link_to memo.title, users_memos_path(id: memo), style: 'width: 100%; text-align: left;', class: 'btn btn-default' %>
+  </div>
+  <div class="panel-body">
+    <div class="well"> <%= simple_format("#{memo.body}") %></div>
+  </div>
+  <div class="panel-footer" style="color: darkgray;">
+  <%= "Made time : #{format_datetime(memo.made_time)}" %>
+    <%= "Updated time : #{format_datetime(memo.updated_time)}" %>
+  </div>
+</div>
