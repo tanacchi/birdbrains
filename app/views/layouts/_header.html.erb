@@ -1,10 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <div class="header">
-      <font color="#77d" size="6"><%=link_to_unless_current 'BirdBrains', root_path %></font>
-      <ul class="nav navbar-nav navbar-right">
+      <font color="#77d" size="7"><%=link_to_unless_current 'BirdBrains', root_path %></font>
+      <ul class="nav navbar-nav navbar-right" style="font-size: 25px; margin-top: 10px;">
         <%  if logged_in? %>
-          <li><%= link_to 'Show', users_path %></li>
+          <li><%= link_to current_user.name, users_path %></li>
           <li><%= link_to 'Signout', signout_path, data: { confirm: 'Are you sure ?' } %></li>
         <% else %>
           <li><%= link_to 'Signin', signin_path %></li>
@@ -14,8 +14,8 @@
     </div>
   </div>
 </header>
-<% flash.each do |name, msg| %>
-  <div class="alert alert-<%= name %>">
+<% flash.each do |type, msg| %>
+  <div class="alert alert-<%= type %>">
     <a class="close" data-dismiss="alert">×</a>
     <%= msg %>
   </div>

@@ -4,8 +4,7 @@
 /* universal */
 
 body {
-  padding-top: 120px;
-  margin: 50px;
+  margin: 10vh 5vw 5vh;
 }
 
 section {
@@ -59,7 +58,8 @@ p {
     letter-spacing: -2px;
     margin-bottom: 10px;
     text-align: center;
-    color: white
+    color: white;
+    height: 10vh;
   }    
 }
 
@@ -82,6 +82,7 @@ p {
 /* footer */
 
 footer {
+  height: 1vh;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;

@@ -1,4 +1,12 @@
+<h1 style="border-radius: 9px; background-color: lavender; padding: 5px;">Memo's detail</h1>
 <%= render partial: 'memos/memo', layout: 'memos/frame', locals: { memo: @memo } %>
-<%= link_to 'Edit', edit_users_memos_path(id: @memo) %>
-<%= link_to 'Delete', users_memos_path(id: @memo), method: :delete, data: { confirm: 'Are you sure ?'} %>
-<%= link_to 'Back', users_path %>
+<p style="margin-left: 10vw;">
+  <%= link_to users_path, class: 'btn btn-default' do %>
+    Back <span class="glyphicon glyphicon-hand-left"></span>  
+  <% end %><%= link_to edit_users_memos_path(id: @memo), class: 'btn btn-default' do %>
+    Edit <span class="glyphicon glyphicon-edit"></span>
+  <% end %>
+  <%= link_to users_memos_path(id: @memo), method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-default' do %>
+    Delete <span class="glyphicon glyphicon-trash"></span>
+  <% end %>
+</p>
