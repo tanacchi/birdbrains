@@ -1,3 +1,4 @@
+# coding: utf-8
 class UsersController < ApplicationController
   before_action :authorize, only: [:show, :edit, :update]
   
@@ -12,9 +13,9 @@ class UsersController < ApplicationController
       log_in @user
       current_user.notices.create(name: 'Information about user',
                                   message: "You created new account at #{view_context.format_datetime(DateTime.now)}")
-      redirect_to users_path, success: "Nice to meet you, #{@user.name}!"
+      redirect_to users_path, success: "#{@user.name}さん、 はじめまして!"
     else
-      redirect_to signup_path, danger: 'Failed to create new account.'
+      redirect_to signup_path, danger: '新規登録に失敗しました。'
     end
   end
 
@@ -27,9 +28,9 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       current_user.notices.create(name: 'Information about user',
                                   message: "You edited your profile at #{view_context.format_datetime(DateTime.now)}")      
-      redirect_to users_url, success: 'Changes saved successfully.'
+      redirect_to users_url, success: 'ユーザー情報が更新されました。'
     else
-      redirect_to edit_users_path, danger: 'Invalid changes exist.'
+      redirect_to edit_users_path, danger: '更新に失敗しました。'
     end
   end
   
