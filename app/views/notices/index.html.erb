@@ -8,11 +8,15 @@
     <div class="progress">
       <%= content_tag :div, "#{unread_notice_rate}%", class: 'progress-bar', role: 'progressbar', style: "width: #{unread_notice_rate}%;"%>
     </div>
-    <% if unread_notice_num == 0 %>
-      <%= simple_format("未読の通知はありません。 いいね！！") %>
-    <% else %>
-      <%= simple_format("#{unread_notice_num}件の未読の通知があります。") %>
-    <% end %>
+    <strong>
+      <% if unread_notice_num == 0 %>
+        <div style="color: tomato;">
+          <%= simple_format("未読の通知はありません。 いいね！！") %>
+        </div>
+      <% else %>
+        <%= simple_format("#{unread_notice_num}件の未読の通知があります。") %>
+      <% end %>
+    </strong>
     <%= render partial: 'notices/notice', collection: @notices %>
   <% end %>
 </p>
