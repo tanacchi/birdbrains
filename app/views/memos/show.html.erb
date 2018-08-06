@@ -1,12 +1,12 @@
-<h1 style="border-radius: 9px; background-color: lavender; padding: 5px;">Memo's detail</h1>
+<h1 style="border-radius: 9px; background-color: lavender; padding: 5px;">メモの詳細</h1>
 <%= render partial: 'memos/memo', layout: 'memos/frame', locals: { memo: @memo } %>
 <p style="margin-left: 10vw;">
   <%= link_to users_path, class: 'btn btn-default' do %>
-    Back <span class="glyphicon glyphicon-hand-left"></span>  
+    戻る <span class="glyphicon glyphicon-hand-left"></span>  
   <% end %><%= link_to edit_users_memos_path(id: @memo), class: 'btn btn-default' do %>
-    Edit <span class="glyphicon glyphicon-edit"></span>
+    編集 <span class="glyphicon glyphicon-edit"></span>
   <% end %>
-  <%= link_to users_memos_path(id: @memo), method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-default' do %>
-    Delete <span class="glyphicon glyphicon-trash"></span>
+  <%= link_to users_memos_path(id: @memo), method: :delete, data: { confirm: '削除しますか？'}, class: 'btn btn-default' do %>
+    削除 <span class="glyphicon glyphicon-trash"></span>
   <% end %>
 </p>
