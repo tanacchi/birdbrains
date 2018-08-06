@@ -4,11 +4,11 @@
       <font color="#77d" size="7"><%=link_to_unless_current 'BirdBrains', root_path %></font>
       <ul class="nav navbar-nav navbar-right" style="font-size: 25px; margin-top: 10px;">
         <%  if logged_in? %>
-          <li><%= link_to current_user.name, users_path %></li>
-          <li><%= link_to 'Signout', signout_path, data: { confirm: 'Are you sure ?' } %></li>
+          <li><%= link_to "#{current_user.name}のホーム", users_path %></li>
+          <li><%= link_to 'サインアウト', signout_path, data: { confirm: 'サインアウトしますか？' } %></li>
         <% else %>
-          <li><%= link_to 'Signin', signin_path %></li>
-          <li><%= link_to 'Signup', signup_path %></li>
+          <li><%= link_to 'サインイン', signin_path %></li>
+          <li><%= link_to '新規登録', signup_path %></li>
         <%  end %>
       </ul>
     </div>
