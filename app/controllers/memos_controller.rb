@@ -15,8 +15,8 @@ class MemosController < ApplicationController
   end
   
   def create
-    @memo = current_user.memos.create!(memo_params)
-    if @memo
+    @memo = current_user.memos.build(memo_params)
+    if @memo.save
       current_user.notices.create(name: 'Information about your memo',
                                   message: "Memo \'#{@memo.title}\' was created.")
       redirect_to users_memos_path(id: @memo), success: 'New memo created successfully.'
