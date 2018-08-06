@@ -1,16 +1,16 @@
-<h1>Memo#Edit</h1>
+<h1>メモ編集</h1>
 
 <div class="container">
   <div class="form-group col-xs-4">
     <%= form_for(@memo, url: url_for(action: 'update', id: @memo.id)) do |f| %>
       <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control', placeholder: 'Input memos title.' %><br>
+      <%= f.text_field :title, class: 'form-control', placeholder: 'タイトルを入力' %><br>
 
       <%= f.label :body %>
-      <%= f.text_area :body, class: 'form-control', placeholder: 'Input memos body.' %><br>
+      <%= f.text_area :body, class: 'form-control', placeholder: '本文を入力' %><br>
 
-      <%= f.submit "Edit memo", class: "btn btn-primary", style: 'background-color: #77d;' %><br>
+      <%= f.submit "更新", class: "btn btn-primary", style: 'background-color: #77d;' %><br>
     <% end %>
-    <%= link_to 'Back', users_memos_path(id: @memo), class: 'btn btn-primary', style: 'margin-top: 50px; background-color: #77d;' %>
+    <%= link_to '戻る', users_memos_path(id: @memo), class: 'btn btn-primary', style: 'margin-top: 50px; background-color: #77d;' %>
   </div>
 </div>

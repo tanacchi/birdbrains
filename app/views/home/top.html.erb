@@ -1,16 +1,17 @@
 <p>
   <% if logged_in? %>
-    <h3>Current user is <strong><%= link_to "#{current_user.name}", users_path %></strong></h3>
+    <h3><strong><%= link_to "#{current_user.name}", users_path %></strong>でサインインしています。</h3>
   <% end %>
 </p>
 <p>
-  <div>
-    You access with <%= request.user_agent %>
+  アクセス情報
+  <div class="well">
+    <%= simple_format(request.user_agent) %>
   </div>
-    <h3>User list</h3>
+    <h3>ユーザーリスト</h3>
   <table border="3" width="300">
     <tr>
-      <th>ID</th><th>Name</th><th>e-mail</th>
+      <th>ID</th><th>ユーザー名</th><th>メールアドレス</th>
     </tr>
     <% @all_user.each do |user| %>
       <tr align="center">

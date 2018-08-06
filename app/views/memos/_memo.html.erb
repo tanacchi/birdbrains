@@ -6,7 +6,7 @@
     <div class="well"> <%= simple_format("#{memo.body}") %></div>
   </div>
   <div class="panel-footer" style="color: darkgray;">
-  <%= "Made time : #{format_datetime(memo.made_time)}" %>
-    <%= "Updated time : #{format_datetime(memo.updated_time)}" %>
+    <%= "作成日時 : #{format_datetime(memo.made_time)}" %> / 
+    <%= "最終更新 : #{format_datetime(memo.updated_time)}" %>
   </div>
 </div>

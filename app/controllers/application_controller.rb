@@ -1,3 +1,4 @@
+# coding: utf-8
 class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   include HomeHelper
@@ -13,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    redirect_to signin_path, info: 'You need to select Signin or Signup.' unless logged_in?
+    redirect_to signin_path, info: 'サインイン か 新規登録 をしてください。' unless logged_in?
   end
 end

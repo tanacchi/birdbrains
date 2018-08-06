@@ -7,11 +7,11 @@
     <div class="panel-body">
       <%= notice.message %>
       <% unless notice.has_read %>
-        <%= button_to 'Mark as Read', notice_mark_as_read_path(id: notice), class: 'btn btn-default', style: 'margin-top: 10px;'%>
+        <%= button_to 'チェック済みにする', notice_mark_as_read_path(id: notice), class: 'btn btn-default', style: 'margin-top: 10px;'%>
       <% end %>
     </div>
     <div class="panel-footer">
-      <%= "created at: #{format_datetime(notice.created_at)}" %>
+      <%= "作成日時: #{format_datetime(notice.created_at)}" %>
     </div>
   <% end %>
 </div>

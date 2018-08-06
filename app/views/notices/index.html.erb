@@ -1,19 +1,23 @@
 <p>
-  <h1 style="border-radius: 9px; background-color: lightskyblue; padding: 5px;">Notice</h1>
+  <h1 style="border-radius: 9px; background-color: lightskyblue; padding: 5px;">通知</h1>
   <% if @notices.empty? %>
-    <%= simple_format("You have no notifications yet.") %>
+    <%= simple_format("まだ通知はありません") %>
   <% else %>
     <% unread_notice_num = @notices.count{|notice| notice[:has_read] == false} %>
     <% unread_notice_rate = 100 - unread_notice_num*100 / @notices.count %>
     <div class="progress">
       <%= content_tag :div, "#{unread_notice_rate}%", class: 'progress-bar', role: 'progressbar', style: "width: #{unread_notice_rate}%;"%>
     </div>
-    <% if unread_notice_num == 0 %>
-      You have no unread-notices. Good job !
-    <% else %>
-      <%= "You have #{unread_notice_num} unread notification(s)." %>
-    <% end %>
+    <strong>
+      <% if unread_notice_num == 0 %>
+        <div style="color: tomato;">
+          <%= simple_format("未読の通知はありません。 いいね！！") %>
+        </div>
+      <% else %>
+        <%= simple_format("#{unread_notice_num}件の未読の通知があります。") %>
+      <% end %>
+    </strong>
     <%= render partial: 'notices/notice', collection: @notices %>
   <% end %>
 </p>
-<%= link_to 'Back', users_path, class: 'btn btn-primary btn-lg' %>
+<%= link_to '戻る', users_path, class: 'btn btn-primary btn-lg' %>
