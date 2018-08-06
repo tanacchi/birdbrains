@@ -1,15 +1,19 @@
 <p>
   <h1 style="border-radius: 9px; background-color: lightskyblue; padding: 5px;">Notice</h1>
-  <% unread_notice_num = @notices.count{|notice| notice[:has_read] == false} %>
-  <% unread_notice_rate = 100 - unread_notice_num*100 / @notices.count %>
-  <div class="progress">
-    <%= content_tag :div, "#{unread_notice_rate}%", class: 'progress-bar', role: 'progressbar', style: "width: #{unread_notice_rate}%;"%>
-  </div>
-  <% if @notices.empty? or unread_notice_num == 0 %>
-    You have no unread-notices. Good job !
+  <% if @notices.empty? %>
+    <%= simple_format("You have no notifications yet.") %>
   <% else %>
-    <%= "You have #{unread_notice_num} unread notification(s)." %>
+    <% unread_notice_num = @notices.count{|notice| notice[:has_read] == false} %>
+    <% unread_notice_rate = 100 - unread_notice_num*100 / @notices.count %>
+    <div class="progress">
+      <%= content_tag :div, "#{unread_notice_rate}%", class: 'progress-bar', role: 'progressbar', style: "width: #{unread_notice_rate}%;"%>
+    </div>
+    <% if unread_notice_num == 0 %>
+      You have no unread-notices. Good job !
+    <% else %>
+      <%= "You have #{unread_notice_num} unread notification(s)." %>
+    <% end %>
+    <%= render partial: 'notices/notice', collection: @notices %>
   <% end %>
-  <%= render partial: 'notices/notice', collection: @notices %>
 </p>
 <%= link_to 'Back', users_path, class: 'btn btn-primary btn-lg' %>
