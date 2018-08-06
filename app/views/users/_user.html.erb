@@ -4,8 +4,11 @@
     <div style="border-bottom: solid 2px lightgray; color: gray; font-size: 40px; padding: 7px;">
       <div style="font-size: 20px;">Name: </div><div style="color: dimgray; padding-left: 5%;"><%= user.name %></div>
     </div>
-    <div style="border-bottom: solid 0px lightgray; color: gray; font-size: 40px; padding: 7px;">
+    <div style="border-bottom: solid 2px lightgray; color: gray; font-size: 40px; padding: 7px;">
       <div style="font-size: 20px;">Email: </div><div style="color: dimgray; padding-left: 5%;"><%= user.email %></div>
+    </div>
+    <div style="border-bottom: solid 0px lightgray; color: gray; font-size: 40px; padding: 7px; height: 50px;;">
+      <%= link_to 'Edit', edit_users_path, class: 'btn btn-default btn-lg pull-right' %>
     </div>
   </div>
 </div>

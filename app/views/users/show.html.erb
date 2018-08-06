@@ -11,10 +11,11 @@
 </p>
 
 <p>
-  <h3 style="border-radius: 9px; background-color: lavender; padding: 5px;">Memo List</h3>
+  <div style="margin: 2vh 10vw 2vh; border-radius: 9px; background-color: lavender; padding: 3px 5px 3px; height: 75px;">
+    <h3 style="font-size: 32px; text-align: center;">
+      Memo List
+      <%= link_to 'New Memo', new_users_memos_path, class: 'btn btn-default btn-lg', style: 'float: right;' %>
+    </h3>
+  </div>
   <%= render  partial: 'memos/memo', collection: @user.memos.order(made_time: :asc), layout: 'memos/frame' %>
-
-  <%= link_to 'Edit', edit_users_path %>
-  <%= link_to 'New Memo', new_users_memos_path %><br>
-  <%= link_to 'Top', root_path %>
 </p>
