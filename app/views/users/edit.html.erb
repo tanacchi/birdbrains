@@ -1,16 +1,16 @@
-<h1>User#Edit</h1>
+<h1>ユーザーの編集</h1>
 
 <div class="container">
   <div class="form-group col-xs-4">
     <%= form_for(@user, url: users_path(@user)) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control', placeholder: 'Input user name.' %><br>
+      <%= f.label :name, '名前' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'ユーザー名を入力' %><br>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control', placeholder: 'Input user email.' %><br>
+      <%= f.label :email, 'Email' %>
+      <%= f.email_field :email, class: 'form-control', placeholder: 'メールアドレスを入力' %><br>
 
-      <%= f.submit "Edit profile", class: "btn btn-primary", style: 'background-color: #77d;' %><br>
+      <%= f.submit "更新", class: "btn btn-primary", style: 'background-color: #77d;' %><br>
     <% end %>
-    <%= link_to 'Back', users_path, class: 'btn btn-primary', style: 'margin-top: 50px; background-color: #77d;' %>
+    <%= link_to '戻る', users_path, class: 'btn btn-primary', style: 'margin-top: 50px; background-color: #77d;' %>
   </div>
 </div>
