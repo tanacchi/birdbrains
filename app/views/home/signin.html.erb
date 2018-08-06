@@ -4,7 +4,7 @@
   <div class="form-group col-xs-4">
     <%= form_for(:session, url: signin_path) do |f| %>
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %><br>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Input your name.' %><br>
 
       <%= f.submit "Log in", class: "btn btn-primary", style: 'background-color: #77d;' %><br>
     <% end %>
