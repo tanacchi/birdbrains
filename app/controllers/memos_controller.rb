@@ -18,8 +18,8 @@ class MemosController < ApplicationController
   def create
     @memo = current_user.memos.build(memo_params)
     if @memo.save
-      current_user.notices.create(name: 'Information about your memo',
-                                  message: "Memo \'#{@memo.title}\' was created.")
+      current_user.notices.create(name: 'メモに関する通知',
+                                  message: "メモ「#{@memo.title}」が追加されました。")
       redirect_to users_memos_path(id: @memo), success: 'メモが追加されました。'
     else
       redirect_to new_users_memos_path, danger: 'メモの追加に失敗ました。'
@@ -33,8 +33,8 @@ class MemosController < ApplicationController
   def update
     @memo = Memo.find(params[:id])
     if @memo.update_attributes(memo_params)
-      current_user.notices.create(name: 'Information about your memo',
-                                  message: "Memo \'#{@memo.title}\' was edited.")      
+      current_user.notices.create(name: 'メモに関する通知',
+                                  message: "メモ「#{@memo.title}」が編集されました。")      
       redirect_to users_memos_path(id: @memo), success: 'メモの情報が更新されました。'
     else
       redirect_to edit_users_memos_path(id: @memo), danger: 'メモの更新に失敗しました。'
@@ -43,8 +43,8 @@ class MemosController < ApplicationController
 
   def destroy
     @memo.destroy
-    current_user.notices.create(name: 'Information about your memo',
-                                message: "Memo \'#{@memo.title}\' was deleted.")
+    current_user.notices.create(name: 'メモに関する通知',
+                                message: "メモ「#{@memo.title}」が削除されました。")
     redirect_to users_url, success: 'メモを削除しました。'
   end
   
