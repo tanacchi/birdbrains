@@ -1,14 +1,14 @@
-<h1>SignIn</h1>
+<h1>サインイン</h1>
 
 <div class="container">
   <div class="form-group col-xs-4">
     <%= form_for(:session, url: signin_path) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control', placeholder: 'Input your name.' %><br>
+      <%= f.label :name, '名前' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'ユーザー名を入力' %><br>
 
-      <%= f.submit "Log in", class: "btn btn-primary", style: 'background-color: #77d;' %><br>
+      <%= f.submit "サインイン", class: "btn btn-primary", style: 'background-color: #77d;' %><br>
     <% end %>
-    <%= link_to 'Top', root_path, class: 'btn btn-primary', style: 'margin-top: 50px; background-color: #77d;' %>
-    <%= link_to 'Signup', signup_path, class: 'btn btn-primary', style: 'margin-top: 50px; background-color: #77d' %>
+    <%= link_to 'トップへ', root_path, class: 'btn btn-primary', style: 'margin-top: 50px; background-color: #77d;' %>
+    <%= link_to 'サインアップ', signup_path, class: 'btn btn-primary', style: 'margin-top: 50px; background-color: #77d' %>
   </div>
 </div>
