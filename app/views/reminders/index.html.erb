@@ -1,6 +1,8 @@
 <h1>Reinders#index</h1>
-
+<p>
 <% for reminder in @reminders %>
   id: <%= reminder.id %><br>
   name: <%= reminder.name%><br>
 <% end %>
+</p>
+<%= link_to '戻る', users_path, class: 'btn btn-default' %>
