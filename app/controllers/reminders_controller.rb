@@ -1,5 +1,6 @@
 # coding: utf-8
 class RemindersController < ApplicationController
+  before_action :authorize,  only: [:index, :show, :edit, :create, :update, :destroy]
   before_action :correct_user, only: [:destroy]
   
   def index
