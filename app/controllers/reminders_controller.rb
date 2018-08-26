@@ -21,6 +21,9 @@ class RemindersController < ApplicationController
     end
   end
 
+  def edit
+    @reminder = Reminder.find(params[:id])    
+  end
   private
   def reminder_params
     params.require(:reminder).permit(:name, :user_id)
