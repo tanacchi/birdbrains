@@ -1,5 +1,7 @@
 # coding: utf-8
 class RemindersController < ApplicationController
+  before_action :correct_user, only: [:destroy]
+  
   def index
     @reminders = current_user.reminders
   end
@@ -33,9 +35,21 @@ class RemindersController < ApplicationController
       render edit_reminder_path(id: @reminder), danger: 'リマインダーの編集に失敗しました。'
     end
   end
+
+  def destroy
+    @reminder.destroy
+    redirect_to users_reminders_path, success: 'リマインダーを削除しました。'
+  end
   
   private
   def reminder_params
     params.require(:reminder).permit(:name, :user_id)
+  end
+
+  def correct_user
+    @reminder = current_user.reminders.find_by(id: params[:id])
+    if @reminder.nil?
+      redirect_to root_url, warning: '不正なアクセスです。'
+    end
   end
 end
