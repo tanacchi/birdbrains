@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resource :users, format: false, shallow: true do
     resource :memos, format: false
     resource :calendar, format: false
+    resources :reminders, format: false
     resources :notices, format: false, only: [:index, :create, :destroy]
   end
 end
