@@ -17,7 +17,7 @@ class RemindersController < ApplicationController
   def create
     @reminder = current_user.reminders.build(reminder_params)
     if @reminder.save
-      redirect_to users_reminders_path, success: 'リマインダーが追加されました。'
+      redirect_to reminder_path(id: @reminder), success: 'リマインダーが追加されました。'
     else
       render new_users_reminders_path, danger: 'リマインダーの作成に失敗しました。'
     end
