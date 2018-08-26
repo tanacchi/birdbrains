@@ -17,6 +17,8 @@ class RemindersController < ApplicationController
   def create
     @reminder = current_user.reminders.build(reminder_params)
     if @reminder.save
+      current_user.notices.create(name: 'リマインダーに関する通知',
+                                    message: "リマインダー「#{@reminder.name}」が追加されました。")
       redirect_to reminder_path(id: @reminder), success: 'リマインダーが追加されました。'
     else
       render new_users_reminders_path, danger: 'リマインダーの作成に失敗しました。'
@@ -30,6 +32,8 @@ class RemindersController < ApplicationController
   def update
     @reminder = Reminder.find(params[:id])
     if @reminder.update_attributes(reminder_params)
+      current_user.notices.create(name: 'リマインダーに関する通知',
+                                    message: "リマインダー「#{@reminder.name}」が編集されました。")
       redirect_to reminder_path(id: @reminder), success: 'リマインダーが編集されました。'
     else
       render edit_reminder_path(id: @reminder), danger: 'リマインダーの編集に失敗しました。'
@@ -38,6 +42,8 @@ class RemindersController < ApplicationController
 
   def destroy
     @reminder.destroy
+    current_user.notices.create(name: 'リマインダーに関する通知',
+                                  message: "リマインダー「#{@reminder.name}」が削除されました。")
     redirect_to users_reminders_path, success: 'リマインダーを削除しました。'
   end
   
