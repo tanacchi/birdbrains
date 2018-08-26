@@ -1,3 +1,4 @@
+# coding: utf-8
 class RemindersController < ApplicationController
   def index
     @reminders = current_user.reminders
@@ -9,5 +10,19 @@ class RemindersController < ApplicationController
 
   def new
     @reminder = Reminder.new
+  end
+
+  def create
+    @reminder = current_user.reminders.build(reminder_params)
+    if @reminder.save
+      redirect_to users_reminders_path, success: 'リマインダーが追加されました。'
+    else
+      render :new, danger: 'リマインダーの作成に失敗しました。'
+    end
+  end
+
+  private
+  def reminder_params
+    params.require(:reminder).permit(:name, :user_id)
   end
 end
