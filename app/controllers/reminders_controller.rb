@@ -24,6 +24,16 @@ class RemindersController < ApplicationController
   def edit
     @reminder = Reminder.find(params[:id])    
   end
+
+  def update
+    @reminder = Reminder.find(params[:id])
+    if @reminder.update_attributes(reminder_params)
+      redirect_to users_reminders_path, success: 'リマインダーが編集されました。'
+    else
+      render :edit, danger: 'リマインダーの編集に失敗しました。'
+    end
+  end
+  
   private
   def reminder_params
     params.require(:reminder).permit(:name, :user_id)
