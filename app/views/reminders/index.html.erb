@@ -2,7 +2,7 @@
 <p>
 <% for reminder in @reminders %>
   id: <%= reminder.id %><br>
-  name: <%= reminder.name%><br>
+  name: <%= link_to reminder.name, reminder_path(id: reminder) %><br>
 <% end %>
 </p>
-<%= link_to '戻る', users_path, class: 'btn btn-default' %>
+<%= link_to '戻る', users_path, class: 'btn btn-default btn-lg' %>
