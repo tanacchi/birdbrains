@@ -17,7 +17,7 @@ class RemindersController < ApplicationController
     if @reminder.save
       redirect_to users_reminders_path, success: 'リマインダーが追加されました。'
     else
-      render :new, danger: 'リマインダーの作成に失敗しました。'
+      render new_users_reminders_path, danger: 'リマインダーの作成に失敗しました。'
     end
   end
 
@@ -30,7 +30,7 @@ class RemindersController < ApplicationController
     if @reminder.update_attributes(reminder_params)
       redirect_to users_reminders_path, success: 'リマインダーが編集されました。'
     else
-      render :edit, danger: 'リマインダーの編集に失敗しました。'
+      render edit_reminder_path(id: @reminder), danger: 'リマインダーの編集に失敗しました。'
     end
   end
   
