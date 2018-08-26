@@ -19,4 +19,23 @@ class RemindersControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to signin_path
   end
+
+  test "reminders create action should create new memo" do
+    login @user
+    assert_difference('Reminder.count') do
+      post users_reminders_path(reminder: { name: 'test_name'})
+    end
+    assert_template nil
+    assert_response :redirect
+    assert_redirected_to reminder_path(id: assigns(:reminder))
+  end
+
+  test "memos create action should not create new memo without login" do
+    assert_no_difference('Reminder.count') do
+      post users_reminders_path(reminder: { title: 'test_name' })
+    end
+    assert_template nil
+    assert_response :redirect
+    assert_redirected_to signin_path
+  end
 end
