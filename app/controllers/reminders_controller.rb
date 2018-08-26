@@ -28,7 +28,7 @@ class RemindersController < ApplicationController
   def update
     @reminder = Reminder.find(params[:id])
     if @reminder.update_attributes(reminder_params)
-      redirect_to users_reminders_path, success: 'リマインダーが編集されました。'
+      redirect_to reminder_path(id: @reminder), success: 'リマインダーが編集されました。'
     else
       render edit_reminder_path(id: @reminder), danger: 'リマインダーの編集に失敗しました。'
     end
