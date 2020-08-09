@@ -1,0 +1,10 @@
+<% user_num = User.count %>
+<% index = -1 %>
+<% for user_id in 0...user_num do %>
+<% 3.times do |n| %>
+reminder<%= user_id %><%= n %>:
+  id:      <%= index += 1 %>
+  name:    Reminder<%= n + 1 %>
+  user_id: <%= user_id %>
+<% end %>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Reminders#new</h1>
+
+<div class="container">
+  <div class="form-group col-xs-4">
+    <%= form_for(@reminder, url: users_reminders_path) do |f| %>
+      <%= f.label :name, 'リスト名' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'リスト名を入力' %><br>
+
+      <%= f.submit "新規作成", class: "btn btn-primary btn-lg", style: 'background-color: hotpink;' %><br><br>
+    <% end %>
+    <%= link_to 'キャンセル', users_reminders_path, class: 'btn btn-primary btn-lg', style: 'background-color: hotpink;' %>
+  </div>
+</div>
+

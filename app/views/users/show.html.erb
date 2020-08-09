@@ -8,6 +8,7 @@
     <% notice_num = @user.notices.count{|notice| notice[:has_read] == false} %>
     通知 <span class="badge badge-primary" style="background-color: white; color: black;"><%= notice_num %></span>
   <% end %>
+  <%= link_to 'リマインダー', users_reminders_path, class: 'btn btn-primary btn-lg', style: 'background-color: hotpink;' %>
 </p>
 
 <p>

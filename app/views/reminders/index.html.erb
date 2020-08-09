@@ -1,0 +1,9 @@
+<h1>Reinders#index</h1>
+<p>
+  <% for reminder in @reminders %>
+    id: <%= reminder.id %><br>
+    name: <%= link_to reminder.name, reminder_path(id: reminder) %><br>
+  <% end %>
+</p>
+<%= link_to '新規作成', new_users_reminder_path, class: 'btn btn-default btn-lg' %>
+<%= link_to '戻る', users_path, class: 'btn btn-default btn-lg' %>

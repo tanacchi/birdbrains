@@ -1,0 +1,10 @@
+<h1>Reminders#show</h1>
+
+<p>
+  id: <%= @reminder.id %>
+  name: <%= @reminder.name %>
+</p>
+
+<%= link_to '編集', edit_reminder_path(id: @reminder), class: 'btn btn-primary btn-lg', style: 'background-color: hotpink;' %>
+<%= link_to '削除', reminder_path(id: @reminder), method: :delete, data: { confirm: '削除しますか？'}, class: 'btn btn-primary btn-lg', style: 'background-color: hotpink;' %>
+<%= link_to '戻る', users_reminders_path, class: 'btn btn-primary btn-lg', style: 'background-color: hotpink;' %>
